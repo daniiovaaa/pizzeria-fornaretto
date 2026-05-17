@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="canonical" href="https://ilfornarettopizzeria.it/">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍕</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍕</text></svg>">
+  
+  <link rel="preload" href="img/hero-pizza.webp" as="image">
+  
+  <meta name="description" content="Il Fornaretto – Pizzeria Artigianale a Ponsacco. Impasti a lievito madre, oltre 60 pizze e senza glutine certificato. Farine speciali disponibili ogni giorno.">
+  <meta name="theme-color" content="#2C1A0E">
+  
+  <meta property="og:title" content="Il Fornaretto – Pizzeria Artigianale · Ponsacco">
+  <meta property="og:description" content="La vera pizza artigianale in Toscana. Impasti a lievito madre e materie prime selezionate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilfornarettopizzeria.it/">
+  <meta property="og:image" content="https://ilfornarettopizzeria.it/img/hero-pizza.webp">
+
+  <title>Il Fornaretto – Pizzeria Artigianale · Ponsacco</title>
+
+  <link rel="preload" href="fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-sans-v17-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Il Fornaretto",
+    "image": "https://ilfornarettopizzeria.it/img/hero-pizza.webp",
+    "url": "https://ilfornarettopizzeria.it/",
+    "telephone": [
+      "+393293979945",
+      "0587730038"
+    ],
+    "priceRange": "€",
+    "menu": "https://ilfornarettopizzeria.it/#menu-completo",
+    "servesCuisine": "Pizza, Pizzeria Artigianale, Senza Glutine",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Trieste 46",
+      "addressLocality": "Ponsacco",
+      "addressRegion": "PI",
+      "postalCode": "56038",
+      "addressCountry": "IT"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "18:00",
+        "closes": "23:30"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/IlFornarettopizzeria/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+    <div id="topbar" aria-live="polite">
+      <span id="js-status" class="t-status">
+        <span class="dot dot-open"></span> Aperto martedì–domenica · 18:00–23:30
+      </span>
+      <span id="js-flour" class="t-flour"></span>
+    </div>
+
+    <nav id="navbar" aria-label="Navigazione principale">
+      <div class="container nav-inner">
+        <a class="nav-logo" href="#hero" aria-label="Torna all'inizio della pagina">Il Fornaretto</a>
+
+        <div class="nav-links" id="nav-links" role="menubar">
+          <a href="#about" role="menuitem">Chi Siamo</a>
+          <a href="#menu-completo" role="menuitem">Menù</a>
+          <a href="#impasti" role="menuitem">Impasti</a>
+          <a href="#servizi" role="menuitem">Servizi</a>
+          <a href="#recensioni" role="menuitem">Recensioni</a>
+          <a href="#info" role="menuitem">Orari & Info</a>
+        </div>
+
+        <div class="nav-cta">
+          <a href="tel:+393293979945" class="btn btn-primary" aria-label="Chiama per prenotare">📞 Chiama Ora</a>
+        </div>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Apri menu mobile" aria-expanded="false" aria-controls="mob-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div id="mob-menu" class="mob-drawer" role="navigation" aria-label="Menu mobile">
+        <a href="#about">Chi Siamo</a>
+        <a href="#menu-completo">Menù</a>
+        <a href="#impasti">Impasti</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#info">Orari & Info</a>
+        
+        <div class="mob-cta">
+          <a href="tel:+393293979945" class="btn btn-primary mob-btn-full">📞 Chiama per Prenotare</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<section id="hero" class="hero-section" aria-label="Introduzione">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-h1 reveal">
+      La vera pizza<br><em>artigianale</em>
+      <small>a Ponsacco</small>
+    </h1>
+
+    <p class="hero-desc reveal">
+      Impasti a lievito madre, farine selezionate e oltre 60 ricette originali. 
+      Un luogo dove la tradizione incontra la qualità.
+    </p>
+
+    <div class="hero-btns reveal">
+      <a href="#menu-completo" class="btn btn-primary">
+        📖 Sfoglia il Menù
+      </a>
+      <button type="button" onclick="openWaModal()" class="btn btn-whatsapp">
+        <span>🟢 Prenota su WhatsApp</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+    <section class="section-pad bg-surface" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <article class="reveal">
+          <p class="eyebrow">Chi Siamo</p>
+          <h2 id="about-title" class="section-title">Una pizzeria con<br><em>passione vera</em></h2>
+          <div class="about-text">
+            <p>Il Fornaretto è nel cuore di Ponsacco: un locale dove la tradizione toscana incontra la nostra impronta artigianale. La nostra pizza ha un <strong>vero cuore toscano</strong>, ma si distingue per un <strong>cornicione leggermente più alto e piacevolmente croccante</strong>.</p>
+            <p>Ogni impasto è lavorato con lievito madre e tempi di maturazione lunghi per garantire non solo un sapore intenso, ma una leggerezza e una digeribilità assolute.</p>
+            <p>Oltre alle pizze troverai antipasti con salumi tipici, cecina, focacce, insalatone e friggitoria golosa. D'estate, la cena si sposta nel nostro bel giardino esterno.</p>
+          </div>
+          <div class="badge-row" aria-label="I nostri punti di forza">
+            <span class="chip">🌿 Lievito Madre</span>
+            <span class="chip">🌾 Senza Glutine</span>
+            <span class="chip">🍕 Cornicione Croccante</span>
+            <span class="chip">🐄 Bufala DOP</span>
+            <span class="chip">🌳 Giardino</span>
+            <span class="chip">🍺 Birre Craft</span>
+            <span class="chip">🚗 Parcheggio</span>
+          </div>
+        </article>
+
+        <aside class="reveal">
+          <div class="quote-card" style="padding-top: 2.2rem;">
+            <p style="font-family: var(--fD); font-style: italic; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: var(--brown);">
+              Benvenuti alla Pizzeria Il Fornaretto. Abbiamo festeggiato con voi 20 anni di attività a Ponsacco, dove abbiamo condiviso la passione e l’amore per la pizza. I nostri impasti nascono da grani selezionati 100% filiera corta italiana (provenienza Umbria, Marche e Toscana) e ogni ingrediente è scelto con accuratezza ed esperienza gastronomica.
+            </p>
+            <cite style="display: block; font-style: normal; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--siena); margin-top: 1.2rem;">
+              La nostra Storia
+            </cite>
+          </div>
+          
+          <div class="stats-row">
+            <div class="stat-cell"><div class="stat-n">20</div><div class="stat-l">Anni di attività</div></div>
+            <div class="stat-cell"><div class="stat-n">60+</div><div class="stat-l">Pizze in menù</div></div>
+            <div class="stat-cell"><div class="stat-n">GF</div><div class="stat-l">Senza glutine</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div id="flour-banner" aria-live="polite">
+      <span class="flour-icon" aria-hidden="true">🌾</span>
+      <p id="flour-banner-text"></p>
+    </div>
+
+    <section class="section-pad menu-tradizionale" id="menu-completo" aria-labelledby="menu-title">
+      <div class="container">
+        
+        <div class="menu-header-classic reveal">
+          <h2 id="menu-title" class="title-vintage">Il Nostro Menù</h2>
+          <p class="subtitle-vintage">Scegli la tua categoria</p>
+        </div>
+
+        <div class="menu-tabs reveal">
+          <button class="menu-tab-btn active" data-target="antipasti">Antipasti</button>
+          <button class="menu-tab-btn" data-target="pizze-speciali">Pizze Speciali</button>
+          <button class="menu-tab-btn" data-target="pizze-rosse">Pizze Rosse</button>
+          <button class="menu-tab-btn" data-target="pizze-bianche">Pizze Bianche</button>
+          <button class="menu-tab-btn" data-target="calzoni">Calzoni</button>
+          <button class="menu-tab-btn" data-target="schiacciatine">Schiacciatine & Fritti</button>
+        </div>
+
+        <div class="menu-category reveal active" id="antipasti">
+          <h3 class="category-title">Antipasti</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Spicchio di Cecina</h4><p class="mi-desc">acqua, sale, olio di mais, farina di ceci</p></div><div class="mi-price">€ 2,20</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Schiacciatino</h4><p class="mi-desc">pane</p></div><div class="mi-price">€ 3,20</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Crostini Misti</h4><p class="mi-desc">cinque tipi diversi</p></div><div class="mi-price">€ 5,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Caprese di Bufala</h4><p class="mi-desc">pomodoro e bufala</p></div><div class="mi-price">€ 8,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Crudo Dolce</h4><p class="mi-desc">al vassoio</p></div><div class="mi-price">€ 7,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Crudo Dolce con Crostini</h4><p class="mi-desc">Prosciutto crudo con crostini</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Bresaola</h4><p class="mi-desc">con rucola e scaglie di grana</p></div><div class="mi-price">€ 9,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Tagliere "IL FORNARETTO"</h4><p class="mi-desc">6 tipi di salumi tipici toscani e del parmense, crudo dolce, pecorino dolce, pecorino stagionato, polenta, sformato di verdura, stracchino, sott'olio, cipolle di tropea in agrodolce, crostini misti e schiacciatino caldo.</p></div><div class="mi-price">€ 16,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Figliata</h4><p class="mi-desc">bufala campana D.O.P. da 500 g. ripiena di ciliegini e stracciatella di bufala con bruschette al pomodoro e basilico, crudo dolce e schiacciatino caldo.</p></div><div class="mi-price">€ 20,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Vassoio di Formaggi</h4><p class="mi-desc">formaggi tipici toscani, grana Padano con miele, marmellate, pera</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Tagliere "CAPRI"</h4><p class="mi-desc">schiacciatina con mozzarella di Bufala, melanzane grigliate, crudo dolce, olive, pomodori secchi, essiccati.</p></div><div class="mi-price">€ 10,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Carpaccio di Tonno</h4><p class="mi-desc">con rucola e ciliegini</p></div><div class="mi-price">€ 9,50</div></article>
+          </div>
+        </div>
+
+        <div class="menu-category reveal" id="pizze-speciali">
+          <h3 class="category-title">Pizze Speciali</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Carbopizza</h4><p class="mi-desc">mozzarella, guanciale, crema di uovo, pecorino romano, grana e pepe nero</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Sorrentina</h4><p class="mi-desc">pomodoro, origano, crudo, olive taggiasche, mozzarella di bufala affumicata</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Mantovana</h4><p class="mi-desc">mozzarella, crema di zucca, brie, speck</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Affumicata</h4><p class="mi-desc">pomodoro, porcini, speck, mozzarella di bufala affumicata</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Ciociara</h4><p class="mi-desc">pomodoro, mozzarella, scamorza, pomodorini, porchetta</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Cuor di Bufala</h4><p class="mi-desc">pomodoro, mozzarella, basilico, burrata fresca, crudo dolce e rucola</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Porcella</h4><p class="mi-desc">bianco con porchetta, porcini, pomodori secchi e gorgonzola</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Black Angus</h4><p class="mi-desc">pomodoro, bufala, carpaccio di bovino argentino, basilico</p></div><div class="mi-price">€ 9,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Gustavo</h4><p class="mi-desc">salsa di pomodori datterini gialli, ciliegini, gorgonzola, mozzarella, guanciale</p></div><div class="mi-price">€ 9,80</div></article>
+          </div>
+        </div>
+
+        <div class="menu-category reveal" id="pizze-rosse">
+          <h3 class="category-title">Pizze Rosse</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Marinara</h4><p class="mi-desc">pomodoro, aglio, origano</p></div><div class="mi-price">€ 4,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Margherita</h4><p class="mi-desc">Pomodoro, mozzarella</p></div><div class="mi-price">€ 5,80</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Parigina</h4><p class="mi-desc">pomodoro, mozzarella, crudo dolce</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Napoletana</h4><p class="mi-desc">pomodoro, mozzarella, acciughe, capperi</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">4 Stagioni</h4><p class="mi-desc">pomodoro, mozzarella, funghi, olive, cotto e carciofini</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Wurstel</h4><p class="mi-desc">pomodoro, mozzarella, wurstel</p></div><div class="mi-price">€ 7,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Capricciosa</h4><p class="mi-desc">pomodoro, mozzarella, funghi, cotto, olive, carciofini, wurstel</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Cotto e Funghi</h4><p class="mi-desc">pomodoro, mozzarella, cotto, funghi</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Ai Formaggi</h4><p class="mi-desc">pomodoro, mozzarella, fontina, gorgonzola</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Buttera</h4><p class="mi-desc">pomodoro, mozzarella, scamorza, pancetta</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Caprese</h4><p class="mi-desc">pomodoro, mozzarella, ciliegini, basilico, Bufala messa a crudo, origano</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Bufalina</h4><p class="mi-desc">pomodoro, mozzarella, doppia Bufala</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Belzebù</h4><p class="mi-desc">pomodoro, mozzarella, salamino piccante, olive, scamorza, peperoncino</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Golosa</h4><p class="mi-desc">pomodoro, mozzarella, rucola, ciliegini, speck, parmigiano</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Tonno e Cipolla</h4><p class="mi-desc">pomodoro, mozzarella, tonno, cipolla</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Cacciatora</h4><p class="mi-desc">pomodoro, mozzarella, porcini, olive, crudo dolce</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">IL FORNARETTO</h4><p class="mi-desc">pomodoro, mozzarella, salsiccia, stracchino, rucola, grana (Pizza Calzone)</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Rustica</h4><p class="mi-desc">pomodoro, mozzarella, cotto, cipolle, salame piccante, verdure grigliate.</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Sarda</h4><p class="mi-desc">pomodoro, mozzarella, salamino piccante, cipolla, crema del Gerrei</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Speck e Mascarpone</h4><p class="mi-desc">pomodoro, mozzarella, speck, mascarpone</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Rustichella</h4><p class="mi-desc">pomodoro, mozzarella, ciliegini, rucola, crudo dolce, grana in scaglie</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Portocervo</h4><p class="mi-desc">pomodoro, aglio, pecorino, ciliegini, rucola, carpaccio di tonno, origano</p></div><div class="mi-price">€ 9,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Costa Smeralda</h4><p class="mi-desc">pomodoro, mozzarella, crema Gerrei, crudo dolce</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Aspromonte</h4><p class="mi-desc">pomodoro, mozzarella, Bufala, 'nduja calabra</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Contadina</h4><p class="mi-desc">pomodoro, mozzarella, cipolla, salsiccia fresca</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Salsiccia e Funghi</h4><p class="mi-desc">pomodoro, mozzarella, salsiccia, funghi</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Diavola</h4><p class="mi-desc">Pomodoro, mozzarella, salamino piccante</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Garfagnina</h4><p class="mi-desc">Pomodoro, mozzarella, porcini, salsiccia</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Maialona</h4><p class="mi-desc">Pomodoro, mozzarella, misto salumi di maiale</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Vegetariana</h4><p class="mi-desc">Pomodoro, mozzarella, verdure grigliate, olive, carciofini</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Ai Frutti di Mare</h4><p class="mi-desc">Pomodoro, mozzarella, frutti di mare misti</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Bella Napoli</h4><p class="mi-desc">Pomodoro, mozzarella, doppia Bufala, ciliegini, basilico</p></div><div class="mi-price">€ 8,50</div></article>
+          </div>
+          <p class="menu-note">* MOZZARELLA SENZA LATTOSIO o MOZZARELLA VEGETALE su richiesta.</p>
+        </div>
+
+        <div class="menu-category reveal" id="pizze-bianche">
+          <h3 class="category-title">Pizze Bianche</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Biancaneve</h4><p class="mi-desc">doppia mozzarella, origano</p></div><div class="mi-price">€ 6,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Deliziosa</h4><p class="mi-desc">mozzarella, pecorino, cotto, olive, carciofini</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Abbruzzese</h4><p class="mi-desc">mozzarella, scamorza, ventricina</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Amalfitana</h4><p class="mi-desc">doppia mozzarella di Bufala, ciliegini, prosciutto crudo dolce</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Cortina</h4><p class="mi-desc">mozzarella, rucola, bresaola</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Crudaiola</h4><p class="mi-desc">mozzarella, ciliegini, rucola, grana, prosciutto crudo dolce</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Norma</h4><p class="mi-desc">mozzarella, melanzane, ciliegini, rucola, pecorino</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Paesana</h4><p class="mi-desc">mozzarella, ciliegini, salsiccia, rucola, stracchino</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Palombina</h4><p class="mi-desc">mozzarella, mascarpone, salmone, rucola</p></div><div class="mi-price">€ 9,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Patatosa</h4><p class="mi-desc">mozzarella, patatine, wurstel, ketchup</p></div><div class="mi-price">€ 8,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Giorgia *</h4><p class="mi-desc">mozzarella, asparagi, gamberetti</p></div><div class="mi-price">€ 9,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Suprema</h4><p class="mi-desc">mozzarella, pesto, grana, mortadella al pistacchio, granella di pistacchio</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Trevisana</h4><p class="mi-desc">mozzarella, briè, radicchio rosso, speck</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Pulcinella</h4><p class="mi-desc">mozzarella, friarielli, scamorza, salsiccia</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Gio di Galletto</h4><p class="mi-desc">mozzarella, porcini, lardo di Colonnata, noci, grana</p></div><div class="mi-price">€ 9,00</div></article>
+          </div>
+          <p class="menu-note">* Prodotto con componenti surgelati.</p>
+        </div>
+
+        <div class="menu-category reveal" id="calzoni">
+          <h3 class="category-title">Calzoni</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Semplice</h4><p class="mi-desc">mozzarella, cotto</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Cotto e Funghi</h4><p class="mi-desc">mozzarella, cotto, champignon</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Farcito</h4><p class="mi-desc">mozzarella, cotto, funghi, carciofi, olive nere, wurstel</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Diavola</h4><p class="mi-desc">mozzarella, pomodoro, pecorino, peperoni, salamino piccante</p></div><div class="mi-price">€ 8,50</div></article>
+          </div>
+        </div>
+
+        <div class="menu-category reveal" id="schiacciatine">
+          <h3 class="category-title">Schiacciatine</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Cotto e Mozzarella</h4><p class="mi-desc">cotto, mozzarella</p></div><div class="mi-price">€ 7,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Crudo e Mozzarella</h4><p class="mi-desc">prosciutto crudo dolce, mozzarella</p></div><div class="mi-price">€ 7,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Pane Arabo</h4><p class="mi-desc">mozzarella, lattuga, pomodoro, crudo dolce</p></div><div class="mi-price">€ 8,50</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">IL FORNARETTO</h4><p class="mi-desc">mozzarella, porcini, crema di noci, rucola, crudo dolce, grana</p></div><div class="mi-price">€ 9,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Estivo</h4><p class="mi-desc">mozzarella, pomodoro a fette, insalata, tonno, maionese</p></div><div class="mi-price">€ 9,00</div></article>
+          </div>
+          
+          <h3 class="category-title" style="margin-top: 3rem;">Fritti</h3>
+          <div class="mgrid">
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Patatine*</h4><p class="mi-desc">con ketchup e maionese</p></div><div class="mi-price">€ 4,20</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Crocchette di Patate*</h4><p class="mi-desc"></p></div><div class="mi-price">€ 5,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Verdure Miste</h4><p class="mi-desc"></p></div><div class="mi-price">€ 6,00</div></article>
+            <article class="mitem"><div class="mi-info"><h4 class="mi-name">Olive all'Ascolana*</h4><p class="mi-desc"></p></div><div class="mi-price">€ 5,00</div></article>
+          </div>
+          <p class="menu-note">* Prodotto surgelato.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-pad bg-image-parallax" id="impasti" aria-labelledby="impasti-title">
+      <div class="container">
+        <p class="eyebrow reveal" style="color:rgba(250,246,239,.62);justify-content:center">I Nostri Impasti</p>
+        <h2 id="impasti-title" class="section-title reveal" style="text-align:center;color:var(--bg)">La qualità inizia<br><em style="color:var(--gold)">dall'impasto</em></h2>
+        <p style="text-align:center;max-width:50ch;margin:0 auto;opacity:.58;font-size:.95rem;line-height:1.8;color:var(--bg)" class="reveal">
+          Tutti gli impasti sono lavorati con lievito madre. Dal martedì alla domenica utilizziamo anche farine speciali — controllate ogni settimana la nostra pagina Facebook.
+        </p>
+
+        <div class="igrid reveal">
+          <div class="icard">
+            <img src="img/impasto-classico.webp" class="icard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="icard-content">
+              <span class="ic" aria-hidden="true">🍕</span>
+              <div class="icard-name">Impasto Classico</div>
+              <div class="icard-desc">Un impasto composto da una percentuale di farina tipo 0 e una farina tipo 1 ricca di fibre, cruschello, germe di grano, vitamine, sali minerali e lievito madre.</div>
+            </div>
+          </div>
+
+          <div class="icard">
+            <img src="img/foto-senza-glutine.webp" class="icard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="icard-content">
+              <span class="ic" aria-hidden="true">🌿</span>
+              <div class="icard-name">Senza Glutine</div>
+              <div class="icard-desc">Preparato fresco ogni giorno in un'area dedicata, unisce amido di mais, farina di riso e addensanti naturali di altissima qualità. Grazie alla fibra di psyllium, l'impasto risulta elastico e garantisce un picco glicemico meno aggressivo per una digeribilità perfetta.</div>
+            </div>
+          </div>
+
+          <div class="icard">
+            <img src="img/cereali.webp" class="icard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="icard-content">
+              <span class="ic" aria-hidden="true">🌾</span>
+              <div class="icard-name">Integrale ai Cereali</div>
+              <div class="icard-desc">Un impasto ricco e nutriente, composto da una percentuale di farina tipo 1 macinata a pietra, farina di segale integrale, farina di farro integrale e lievito madre.</div>
+            </div>
+          </div>
+
+          <div class="icard">
+            <img src="img/toscano.webp" class="icard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="icard-content">
+              <span class="ic" aria-hidden="true">🫘</span>
+              <div class="icard-name">Al Farro Toscano Integrale</div>
+              <div class="icard-desc">Un impasto composto da una percentuale di farina tipo 1 macinata a pietra, farina di farro 100% integrale toscano e lievito madre.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-surface" id="servizi" aria-labelledby="servizi-title">
+      <div class="container">
+        <p class="eyebrow reveal">Servizi</p>
+        <h2 id="servizi-title" class="section-title reveal">Un posto dove <em>stare bene</em></h2>
+
+        <div class="sgrid">
+          <article class="scard reveal">
+            <img src="img/giardino.webp" class="scard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="scard-content">
+              <div class="scard-icon" aria-hidden="true">⛱️</div>
+              <h3 class="scard-title">Spazio all'Aperto</h3>
+              <p class="scard-desc">Durante la bella stagione, mettiamo a disposizione i nostri tavoli all'esterno. Un dehor semplice e accogliente, perfetto per godersi una buona pizza all'aria aperta nelle calde serate estive.</p>
+            </div>
+          </article>
+
+          <article class="scard reveal">
+            <img src="img/parcheggio.webp" class="scard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="scard-content">
+              <div class="scard-icon" aria-hidden="true">🚗</div>
+              <h3 class="scard-title">Parcheggio</h3>
+              <p class="scard-desc">Ampio parcheggio disponibile nelle vicinanze. Arrivare è semplice, comodo e senza stress, anche nei momenti di punta.</p>
+            </div>
+          </article>
+
+          <article class="scard reveal">
+            <img src="img/foto-senza-glutine.webp" class="scard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="scard-content">
+              <div class="scard-icon" aria-hidden="true">🌾</div>
+              <h3 class="scard-title">Senza Glutine</h3>
+              <p class="scard-desc">Il nostro laboratorio certificato AIC offre pizze senza glutine di altissima qualità. Una delle migliori opzioni in zona.</p>
+            </div>
+          </article>
+
+          <article class="scard reveal">
+            <img src="img/stile.webp" class="scard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="scard-content">
+              <div class="scard-icon" aria-hidden="true">🍕</div>
+              <h3 class="scard-title">Il Nostro Stile</h3>
+              <p class="scard-desc">Una base dal vero cuore toscano, stesa sottile al centro, incorniciata da un bordo leggermente più alto e piacevolmente croccante. L'equilibrio perfetto.</p>
+            </div>
+          </article>
+
+          <article class="scard reveal">
+            <img src="img/birre.webp" class="scard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="scard-content">
+              <div class="scard-icon" aria-hidden="true">🍺</div>
+              <h3 class="scard-title">Birre Artigianali</h3>
+              <p class="scard-desc">La nostra selezione vanta le eccellenze di due birrifici agricoli: l'umbro <strong>Azienda Flea</strong> e il 100% toscano <strong>Radical Brewery</strong>. Selezionate con cura per esaltare i sapori dei nostri impasti.</p>
+            </div>
+          </article>
+
+          <article class="scard reveal">
+            <img src="img/dolce.webp" class="scard-bg" loading="lazy" alt="" aria-hidden="true">
+            <div class="scard-content">
+              <div class="scard-icon" aria-hidden="true">🎂</div>
+              <h3 class="scard-title">Dolci Fatti in Casa</h3>
+              <p class="scard-desc">Tiramisù, dessert e dolci preparati da Serena, la proprietaria. Il finale perfetto per una serata da ricordare, con opzioni disponibili anche senza glutine e senza lattosio.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="recensioni" aria-labelledby="recensioni-title">
+      <div class="container">
+        <p class="eyebrow reveal">Recensioni</p>
+        <h2 id="recensioni-title" class="section-title reveal">Cosa dicono<br><em>i nostri ospiti</em></h2>
+
+        <div class="rgrid">
+          <article class="rcard reveal">
+             <div class="r-stars" role="img" aria-label="Valutazione: 5 stelle su 5">★★★★★</div>
+            <p class="r-text">Pizza spettacolare con ottimi ingredienti. Consiglio vivamente il tiramisù fatto dalla proprietaria Serena: veramente ottimo.</p>
+            <div class="r-auth">Moreno P. · Novembre 2024</div>
+          </article>
+          <article class="rcard reveal">
+             <div class="r-stars" role="img" aria-label="Valutazione: 5 stelle su 5">★★★★★</div>
+            <p class="r-text">L'impasto è leggero, digeribile e ben lievitato — si sente la cura nella preparazione. La cottura è perfetta. Tornerò sicuramente!</p>
+            <div class="r-auth">Serens M. · Aprile 2025</div>
+          </article>
+          <article class="rcard reveal">
+             <div class="r-stars" role="img" aria-label="Valutazione: 5 stelle su 5">★★★★★</div>
+            <p class="r-text">Ottima pizza senza glutine, una delle migliori che abbia mai mangiato. Locale carino, bel dehors esterno, prezzi assolutamente adeguati.</p>
+            <div class="r-auth">morello1150 · Luglio 2025</div>
+          </article>
+          <article class="rcard reveal">
+             <div class="r-stars" role="img" aria-label="Valutazione: 5 stelle su 5">★★★★★</div>
+            <p class="r-text">Pizze soffici, digeribili e a prezzi contenuti. Da provare l'impasto multicereali. Non c'è una pizza sopra i dieci euro!</p>
+            <div class="r-auth">Mr_Vituperio · Marzo 2026</div>
+          </article>
+          <article class="rcard reveal">
+             <div class="r-stars" role="img" aria-label="Valutazione: 5 stelle su 5">★★★★★</div>
+            <p class="r-text">Pizza buonissima, impasto leggerissimo e tanta varietà nel menù. Servizio veloce nonostante ci sia sempre tanta gente.</p>
+            <div class="r-auth">Enzo · Aprile 2025</div>
+          </article>
+          <article class="rcard reveal">
+             <div class="r-stars" role="img" aria-label="Valutazione: 5 stelle su 5">★★★★★</div>
+            <p class="r-text">Qualità prezzo alla grande! Camerieri gentilissimi. Spettacolo, ci si ritorna!</p>
+            <div class="r-auth">Tommaso M. · Marzo 2026</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad menu-tradizionale" id="info" aria-label="Informazioni e Orari">
+      <div class="container">
+        
+        <div class="menu-header-classic reveal">
+          <h2 class="title-vintage">Ci Trovi Qui</h2>
+          <p class="subtitle-vintage">Prenota il tuo tavolo o passa a trovarci</p>
+        </div>
+
+        <div class="info-unified reveal">
+          <div class="info-col">
+            <h3 class="category-title" style="margin-top:0;">Orari di Apertura</h3>
+            <table class="htable-light" id="htable" aria-label="Orari di apertura">
+              <tbody>
+                <tr data-day="1"><td>Lunedì</td><td>Chiuso</td></tr>
+                <tr data-day="2"><td>Martedì <span aria-hidden="true">🌾</span></td><td>18:00 – 23:30</td></tr>
+                <tr data-day="3"><td>Mercoledì <span aria-hidden="true">🌾</span></td><td>18:00 – 23:30</td></tr>
+                <tr data-day="4"><td>Giovedì <span aria-hidden="true">🌾</span></td><td>18:00 – 23:30</td></tr>
+                <tr data-day="5"><td>Venerdì <span aria-hidden="true">🌾</span></td><td>18:00 – 23:30</td></tr>
+                <tr data-day="6"><td>Sabato <span aria-hidden="true">🌾</span></td><td>18:00 – 23:30</td></tr>
+                <tr data-day="0"><td>Domenica <span aria-hidden="true">🌾</span></td><td>18:00 – 23:30</td></tr>
+              </tbody>
+            </table>
+            <p class="menu-note" style="border: none; padding-top: 0;">🌾 = farine speciali disponibili</p>
+          </div>
+
+          <div class="info-col">
+            <h3 class="category-title" style="margin-top:0;">Contatti</h3>
+            <ul class="clist-light">
+              <li class="citem">
+                <span class="citem-icon" aria-hidden="true">📍</span>
+                <div>
+                  <span class="citem-label">Indirizzo</span>
+                  <address class="citem-val">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Il+Fornaretto+Ponsacco+Via+Trieste+46" target="_blank" rel="noopener noreferrer">
+                      Via Trieste 46 - 56038 Ponsacco (Toscana)
+                    </a>
+                  </address>
+                </div>
+              </li>
+              <li class="citem">
+                <span class="citem-icon" aria-hidden="true">📱</span>
+                <div>
+                  <span class="citem-label">Cellulare</span>
+                  <span class="citem-val"><a href="tel:+393293979945">329 397 9945</a></span>
+                </div>
+              </li>
+              <li class="citem">
+                <span class="citem-icon" aria-hidden="true">☎️</span>
+                <div>
+                  <span class="citem-label">Telefono Fisso</span>
+                  <span class="citem-val"><a href="tel:0587730038">0587 730038</a></span>
+                </div>
+              </li>
+              <li class="citem">
+                <span class="citem-icon" aria-hidden="true">📘</span>
+                <div>
+                  <span class="citem-label">Facebook</span>
+                  <span class="citem-val"><a href="https://www.facebook.com/IlFornarettopizzeria/" target="_blank" rel="noopener noreferrer">@PizzeriaIlFornaretto</a></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer" style="text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem;">
+  <div class="container">
+    <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+      © 2026 <strong>Il Fornaretto</strong> · Pizzeria Artigianale · Ponsacco (PI)
+    </p>
+    <p style="font-size: 0.85rem;">
+      <a href="https://ilfornarettopizzeria.it/privacy.html" style="color: var(--gold); text-decoration: none;">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+
+<div id="wa-modal" class="wa-modal-overlay" aria-hidden="true">
+        <div class="wa-modal-dialog">
+          <button type="button" class="wa-modal-close" onclick="closeWaModal()" aria-label="Chiudi">×</button>
+          <h4 class="wa-booking-title">Prenota il tuo tavolo</h4>
+          
+          <div class="wa-input-group">
+            <label for="wa-name">Nome e Cognome</label>
+            <input type="text" id="wa-name" placeholder="Es. Mario Rossi" required>
+          </div>
+
+          <div class="wa-row">
+            <div class="wa-col">
+              <label for="wa-date">Data</label>
+              <input type="date" id="wa-date" required>
+            </div>
+            <div class="wa-col">
+              <label for="wa-time">Ora</label>
+              <input type="time" id="wa-time" min="18:00" max="23:30" value="19:30" required>
+            </div>
+          </div>
+
+          <div class="wa-input-group">
+            <label for="wa-people">Persone</label>
+            <select id="wa-people">
+              <option value="1 persona">1 persona</option>
+              <option value="2 persone" selected>2 persone</option>
+              <option value="3 persone">3 persone</option>
+              <option value="4 persone">4 persone</option>
+              <option value="5 persone">5 persone</option>
+              <option value="6 persone">6 persone</option>
+              <option value="7+ persone">7+ persone (tavolata)</option>
+            </select>
+          </div>
+
+          <button type="button" onclick="sendWhatsAppBooking()" class="btn btn-whatsapp wa-submit-btn">
+            <span>🟢 Invia su WhatsApp</span>
+          </button>
+
+          <button type="button" onclick="sendDirectWhatsApp()" class="wa-skip-btn">
+            Continua senza compilare →
+          </button>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,1544 @@
+/* ── 0. FONTS (self-hosted) ─────────────────────────────────── */
+
+/* Cormorant Garamond */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin-600italic.woff2') format('woff2');
+}
+
+/* DM Sans */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/dm-sans-v17-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/dm-sans-v17-latin-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/dm-sans-v17-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/dm-sans-v17-latin-700.woff2') format('woff2');
+}
+
+/* ── 1. DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  --bg:        #EADBB8; 
+  --surface:   #DBC59C; 
+  --brown:     #2B1708;
+  --siena:     #9B4A1C;
+  --siena-h:   #7A3615;
+  --siena-l:   #C87A52;
+  --sage:      #5E7050;
+  --gold:      #B8882A;
+  --white:     #FFFFFF;
+  --muted:     rgba(43, 23, 8, 0.52);
+
+  /* Typography */
+  --fD: 'Cormorant Garamond', Georgia, serif;
+  --fB: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Border Radius */
+  --r-s: 4px;
+  --r-m: 10px;
+
+  /* Shadows */
+  --sh-s: 0 2px 8px rgba(43, 23, 8, 0.09);
+  --sh-m: 0 6px 24px rgba(43, 23, 8, 0.13);
+  --sh-l: 0 16px 48px rgba(43, 23, 8, 0.18);
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur:  200ms;
+}
+
+/* ── 2. RESET & ACCESSIBILITY ──────────────────────────────────── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0;
+}
+
+html { 
+  scroll-behavior: smooth; 
+  -webkit-text-size-adjust: 100%; 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { 
+    animation-duration: 0.01ms !important; 
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px dashed var(--siena);
+  outline-offset: 4px;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+
+/* ── 3. BASE & TEXTURE ─────────────────────────────────────────── */
+body {
+  font-family: var(--fB);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--brown);
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Effetto Carta Paglia / Ruvida */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ── 4. TYPOGRAPHY ─────────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--fB);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--siena);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.6rem; height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--fD);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--brown);
+  margin-bottom: 1.4rem;
+}
+
+.section-title em { 
+  font-style: italic; 
+  color: var(--siena); 
+}
+
+/* ── 5. LAYOUT ─────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-pad   { padding-block: 4.5rem; }
+.section-pad-l { padding-block: 7rem; }
+
+.bg-surface { background: transparent; } /* Rimossi gli sfondi bianchi finti */
+.bg-brown   { background: var(--brown); color: var(--bg); }
+.bg-siena   { background: var(--siena); color: var(--bg); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.reveal.on { 
+  opacity: 1;
+  transform: none; 
+}
+
+/* ── 6. BUTTONS & CTAs ─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--fB);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-s);
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+
+.btn:hover  { transform: translateY(-2px); }
+.btn:active { transform: none; }
+
+.btn-primary { 
+  background: transparent; 
+  color: var(--brown);
+  border: 1.5px solid var(--brown);
+  border-radius: 50px; /* Forma a pillola dell'opzione A */
+  padding: 0.85rem 2.2rem;
+  font-weight: 700;
+  transition: all var(--dur) var(--ease);
+}
+
+.btn-primary:hover { 
+  background: var(--brown); 
+  color: var(--bg); /* Il testo diventa color carta paglia sul marrone */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(43, 23, 8, 0.2);
+}
+
+.mob-btn-full {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-outline-light { 
+  background: transparent; 
+  color: var(--white); 
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+
+.btn-outline-light:hover { 
+  background: rgba(255, 255, 255, 0.14); 
+  border-color: var(--white); 
+}
+
+.btn-outline-dark { 
+  background: transparent; 
+  color: var(--brown);
+  border: 1.5px solid var(--brown); 
+}
+
+.btn-outline-dark:hover { 
+  background: var(--brown); 
+  color: var(--bg);
+}
+
+.mob-btn-half {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ── 7. TOPBAR (Fascia Marrone Solida) ──────────────────────────── */
+#topbar {
+  background: var(--brown);
+  color: rgba(250, 246, 239, 0.72);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+
+.t-status { 
+  display: flex;
+  align-items: center; 
+  gap: 0.45rem; 
+  font-weight: 500; 
+}
+
+.dot { 
+  width: 6px; 
+  height: 6px; 
+  border-radius: 50%;
+  animation: pulse 2.2s ease infinite; 
+}
+
+.dot-open   { background: #6fcf97; }
+.dot-closed { background: #eb5757; }
+
+@keyframes pulse { 
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); } 
+}
+
+.t-flour { 
+  color: var(--gold); 
+  font-weight: 600; 
+}
+
+/* ── 8. NAVBAR ─────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0; 
+  z-index: 300;
+}
+
+#navbar {
+  /* Colore solido e compatto quando sei in cima alla pagina */
+  background: rgba(234, 219, 184, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 2px solid rgba(43, 23, 8, 0.1);
+  /* Transizione per rendere il passaggio fluido */
+  transition: background var(--dur) var(--ease), box-shadow var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease), -webkit-backdrop-filter var(--dur) var(--ease);
+}
+
+/* Effetto vetro per la Navbar (fascia chiara) quando si scende */
+#navbar.scrolled { 
+  background: rgba(234, 219, 184, 0.30);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(43, 23, 8, 0.15); 
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 1rem;
+}
+
+.nav-logo {
+  font-family: var(--fD);
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--siena);
+  flex-shrink: 0;
+}
+
+/* Desktop nav */
+.nav-links { 
+  display: none; 
+  gap: 0.15rem; 
+}
+
+.nav-links a {
+  padding: 0.38rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown);
+  opacity: 0.65;
+  border-radius: 2rem;
+  transition: opacity var(--dur), background var(--dur), color var(--dur);
+}
+
+/* Stato normale hover/attivo sulla carta paglia */
+.nav-links a:hover, 
+.nav-links a.active { 
+  opacity: 1; 
+  background: var(--surface); 
+  color: var(--siena);
+}
+
+.nav-cta { 
+  display: none; 
+  gap: 0.65rem; 
+}
+
+/* Hamburger */
+.nav-toggle { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 5px;
+  width: 26px; 
+}
+
+.nav-toggle span { 
+  display: block; 
+  height: 2px; 
+  background: var(--brown); 
+  border-radius: 2px;
+  transition: transform var(--dur) var(--ease), opacity var(--dur); 
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mob-drawer {
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+  border-top: 1px solid rgba(43, 23, 8, 0.1);
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.mob-drawer.open { 
+  display: flex;
+}
+
+.mob-drawer a {
+  padding: 0.85rem 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(43, 23, 8, 0.1);
+}
+
+.mob-cta { 
+  display: flex; 
+  gap: 0.75rem; 
+  margin-top: 1.2rem; 
+  flex-wrap: wrap;
+}
+
+/* ── INVERSIONE COLORI NAVBAR SU SFONDI SCURI ── */
+
+/* 1. Cambia il colore del Logo */
+body #navbar.dark-text-mode .nav-logo { 
+  color: var(--gold); 
+}
+
+/* 2. Cambia il colore dei Link del Menù (MENU, IMPASTI, ecc.) */
+body #navbar.dark-text-mode .nav-links a { 
+  color: var(--bg); 
+  opacity: 0.9; 
+}
+
+/* 3. Sfondo "a pillola" scuro quando si passa sopra il link o è attivo */
+body #navbar.dark-text-mode .nav-links a:hover,
+body #navbar.dark-text-mode .nav-links a.active { 
+  background: rgba(43, 23, 8, 0.75); 
+  color: var(--gold); 
+  opacity: 1; 
+}
+
+/* 4. Cambia il colore del tasto Chiama Ora */
+body #navbar.dark-text-mode .btn-primary {
+  border-color: var(--bg);
+  color: var(--bg);
+}
+
+body #navbar.dark-text-mode .btn-primary:hover {
+  background: var(--bg);
+  color: var(--brown);
+}
+
+/* 5. Cambia il colore dell'hamburger (lineette) per il mobile */
+body #navbar.dark-text-mode .nav-toggle span { 
+  background: var(--bg); 
+}
+
+/* 6. Rendi il bordo inferiore della navbar meno visibile */
+body #navbar.dark-text-mode { 
+  border-bottom-color: rgba(250, 246, 239, 0.1); 
+}
+
+@media(min-width: 900px) {
+  .nav-links  { display: flex; }
+  .nav-cta    { display: flex; }
+  .nav-toggle { display: none; }
+}
+
+/* ── 9. HERO ────────────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  min-height: 85svh; /* Altezza ridotta per non disperdere i contenuti */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+
+/* Regola chirurgica per i telefoni (schermi fino a 768px di larghezza) */
+@media (max-width: 768px) {
+  #hero {
+    min-height: auto; 
+    /* Riduciamo ulteriormente i margini per abbassare l'altezza totale della foto */
+    padding-top: 7.5rem; 
+    padding-bottom: 2.5rem; 
+    align-items: center; 
+  }
+  
+  .hero-content {
+    margin-top: 0; 
+  }
+
+  /* --- IL TRUCCO PER L'INQUADRATURA --- */
+  .hero-bg {
+    /* Spostiamo l'obiettivo della "fotocamera" verso sinistra (25%) */
+    /* Così inquadriamo il volto del pizzaiolo, le mani e la pala! */
+    background-position: 25% center; 
+  }
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0; z-index: 0;
+  /* Percorso aggiornato al formato WebP per la massima velocità */
+  background-image: url('img/hero-pizza.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 65%, rgba(200, 122, 82, 0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 78% 22%, rgba(184, 136, 42, 0.16) 0%, transparent 45%);
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  right: -12vw; top: 50%; transform: translateY(-50%);
+  width: clamp(240px, 44vw, 620px);
+  height: clamp(240px, 44vw, 620px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #C4703F 0%, #7A3615 52%, #3D1506 100%);
+  opacity: 0.18;
+}
+
+.hero-overlay { 
+  position: absolute;
+  inset: 0; 
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(15, 5, 1, 0.45) 0%, rgba(15, 5, 1, 0.22) 50%, rgba(15, 5, 1, 0.72) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  max-width: 780px;
+  padding-inline: 1.5rem;
+  margin-top: 5rem; /* Corretto lo spazio: unisce e alza il blocco visivo */
+}
+
+/* Nota: .hero-eyebrow può restare nel CSS in caso di riutilizzo futuro */
+.hero-eyebrow {
+  font-family: var(--fB);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.hero-eyebrow::before, .hero-eyebrow::after { 
+  content: ''; 
+  height: 1px; 
+  width: 1.8rem;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.hero-h1 {
+  font-family: var(--fD);
+  font-size: clamp(3rem, 9.5vw, 7.5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.3rem;
+}
+
+.hero-h1 em { 
+  display: block; 
+  font-style: italic; 
+  color: #E8B07A;
+}
+
+/* --- NUOVA REGOLA PER IL TESTO INTERMEDIO (Toscana · Artigianalità...) --- */
+.hero-location-text {
+  display: block;
+  font-family: var(--fS, 'DM Sans', sans-serif);
+  font-size: 0.12em; 
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5); 
+  margin: 1.2rem 0; 
+}
+
+/* --- REGOLA AGGIORNATA PER IL TESTO "A PONSACCO" (SEO) --- */
+.hero-h1 small {
+  display: block;
+  font-family: var(--fS, 'DM Sans', sans-serif); 
+  font-size: clamp(0.85rem, 2vw, 1.1rem); /* Misura fissa ed elegante, non più proporzionale al gigante H1 */
+  font-weight: 500;
+  letter-spacing: 0.4em; /* Molto spaziato per dare aria */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 1.5rem;
+}
+
+.hero-desc {
+  font-size: clamp(0.92rem, 1.6vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 60ch; 
+  margin: 0 auto 2.5rem;
+  line-height: 1.75;
+}
+
+/* --- PULSANTI HERO E WHATSAPP --- */
+/* --- PULSANTI HERO E WHATSAPP --- */
+.hero-btns {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Forziamo la forma a pillola per renderli coerenti col resto del sito */
+.hero-btns .btn {
+  min-width: 200px;
+  border-radius: 50px; 
+}
+
+/* Pulsante Menù: Invertito per lo sfondo scuro 
+   (Parte pieno color panna, al passaggio del mouse diventa trasparente) */
+.hero-btns .btn-primary {
+  background: var(--bg); 
+  color: var(--brown) !important; 
+  border: 1.5px solid var(--bg);
+}
+
+.hero-btns .btn-primary:hover {
+  background: transparent;
+  color: var(--bg) !important;
+  border-color: var(--bg);
+}
+
+/* Pulsante WhatsApp: Stile elegante 
+   (Parte trasparente con bordo verde, al passaggio del mouse si riempie) */
+.hero-btns .btn-whatsapp {
+  background: transparent;
+  color: #25D366;
+  border: 1.5px solid #25D366;
+  cursor: pointer;
+transform: translateX(35px); /* Sposta visivamente SOLO questo tasto a destra, ignorando Flexbox */
+}
+
+.hero-btns .btn-whatsapp:hover {
+  background: #25D366;
+  color: var(--white, #FFFFFF);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%; transform: translateX(-50%); z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+}
+
+.hero-scroll-line {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), transparent);
+  animation: sline 1.9s ease-in-out infinite;
+}
+
+@keyframes sline {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── 10. ABOUT ─────────────────────────────────────────────────── */
+.about-grid { 
+  display: grid; 
+  gap: 4rem; 
+  align-items: center;
+}
+
+.about-text p { 
+  font-size: 1.04rem; 
+  line-height: 1.88; 
+  opacity: 0.8; 
+  margin-bottom: 0.8rem; 
+}
+
+.badge-row { 
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 0.5rem; 
+  margin-top: 1.4rem; 
+}
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.38rem;
+  padding: 0.35rem 0.82rem; font-size: 0.74rem;
+  font-weight: 500;
+  background: transparent; border: 1px solid rgba(43, 23, 8, 0.2);
+  border-radius: 2rem; color: var(--brown);
+}
+
+.quote-card {
+  background: transparent;
+  border-left: 3px solid var(--siena);
+  padding: 1.5rem 1rem 1.5rem 2.2rem;
+}
+
+.quote-card blockquote {
+  font-family: var(--fD); font-style: italic;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.55; color: var(--brown);
+  position: relative; padding-left: 0.2rem;
+}
+
+.quote-card blockquote::before {
+  content: '\201C'; position: absolute;
+  left: -0.4rem; top: -0.8rem;
+  font-size: 5rem; color: var(--siena); opacity: 0.13; line-height: 1;
+}
+
+.quote-card cite { 
+  display: block; 
+  font-style: normal; 
+  font-size: 0.7rem; 
+  font-weight: 700; 
+  letter-spacing: 0.14em; 
+  text-transform: uppercase; 
+  color: var(--siena);
+  margin-top: 1.2rem; 
+}
+
+.stats-row { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  border: 1px solid rgba(43, 23, 8, 0.2); 
+  border-radius: var(--r-s);
+  margin-top: 1.5rem; 
+}
+
+.stat-cell { 
+  padding: 1.2rem 0.5rem; 
+  text-align: center; 
+  border-right: 1px solid rgba(43, 23, 8, 0.2);
+}
+
+.stat-cell:last-child { border-right: none; }
+
+.stat-n { 
+  font-family: var(--fD); 
+  font-size: 2.2rem; 
+  font-weight: 600; 
+  color: var(--siena); 
+  line-height: 1; 
+  margin-bottom: 0.22rem;
+}
+
+.stat-l { 
+  font-size: 0.66rem; 
+  font-weight: 600; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  opacity: 0.58;
+}
+
+@media(min-width: 900px) { 
+  .about-grid { grid-template-columns: 1fr 1fr; } 
+}
+
+/* ── 11. FLOUR BANNER ──────────────────────────────────────────── */
+#flour-banner {
+  display: none; 
+  background: var(--sage);
+  color: var(--white);
+  padding: 1rem 2rem;
+  justify-content: center; /* Centra orizzontalmente icona e testo */
+  align-items: center;     /* Allinea verticalmente */
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+#flour-banner.visible { 
+  display: flex; 
+}
+
+#flour-banner .flour-icon {
+  font-size: 1.4rem;
+}
+
+#flour-banner p { 
+  margin: 0;
+  font-size: 0.88rem; 
+  line-height: 1.5; 
+  text-align: center;
+}
+
+/* --- OTTIMIZZAZIONE SPECIFICA PER MOBILE --- */
+@media (max-width: 768px) {
+  #flour-banner {
+    flex-direction: column; /* Impila l'icona a spiga perfettamente sopra il testo */
+    padding: 1.2rem 1.5rem;
+    gap: 0.5rem; /* Riduciamo lo spazio per un layout a medaglia più compatto */
+  }
+
+  #flour-banner .flour-icon {
+    font-size: 1.6rem; /* Ingrandiamo leggermente l'icona per farla spiccare al centro */
+  }
+
+  #flour-banner p {
+    font-size: 0.85rem; /* Leggero ridimensionamento per evitare troppi ritorni a capo */
+  }
+}
+
+/* ── 12. MENÙ VECCHIA LOCANDA ──────────────────────────────────── */
+.menu-tradizionale { background: transparent; }
+
+.menu-header-classic {
+  text-align: center; margin-bottom: 4rem;
+}
+
+.title-vintage {
+  font-family: var(--fD); font-size: clamp(2.5rem, 6vw, 3.5rem); color: var(--brown);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;
+}
+
+.subtitle-vintage {
+  font-family: var(--fD); font-style: italic; font-size: 1.2rem; color: var(--siena-h);
+}
+
+.category-title {
+  font-family: var(--fD); font-size: 2.2rem; color: var(--siena);
+  text-align: center; margin: 4rem 0 2rem; position: relative;
+}
+
+.category-title::before, .category-title::after {
+  content: ' 〰 '; color: var(--brown); opacity: 0.3;
+}
+
+.mgrid {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1rem;
+  background: transparent; border: none;
+}
+@media(min-width: 600px)  { .mgrid { grid-template-columns: 1fr 1fr; } }
+@media(min-width: 1024px) { .mgrid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.mitem { 
+  display: flex; justify-content: space-between; align-items: flex-start; 
+  gap: 1rem; padding: 0.5rem 0; background: transparent; 
+  border-bottom: 1px dotted rgba(43, 23, 8, 0.4); transition: background var(--dur); 
+}
+
+.mitem:hover { background: rgba(43, 23, 8, 0.03); }
+
+.mi-name { 
+  font-family: var(--fD); font-size: 1.2rem; font-weight: 600; color: var(--brown); 
+  margin-bottom: 0.12rem; text-transform: uppercase; letter-spacing: 0.02em; 
+}
+
+.mi-desc { 
+  font-family: var(--fD); font-style: italic; font-size: 1rem; opacity: 0.8; 
+  color: var(--brown); line-height: 1.4; text-transform: none;
+}
+
+.mi-price { 
+  font-family: var(--fB); font-size: 1.3rem; font-weight: bold; color: var(--siena); 
+  flex-shrink: 0; white-space: nowrap; font-style: normal;
+}
+
+.menu-note { 
+  font-size: 0.73rem; color: var(--muted); margin-top: 1.2rem; padding-top: 0.8rem; 
+  border-top: 1px dashed rgba(43, 23, 8, 0.2); line-height: 1.65; 
+}
+
+/* ── STILE DEI TABS (BOTTONI CATEGORIA) ── */
+.menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 4rem;
+}
+
+.menu-tab-btn {
+  padding: 0.6rem 1.5rem;
+  border: 1px solid rgba(43, 23, 8, 0.2);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--brown);
+  font-family: var(--fB);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--dur) var(--ease);
+}
+
+.menu-tab-btn.active, 
+.menu-tab-btn:hover {
+  background: var(--brown);
+  color: var(--bg);
+  border-color: var(--brown);
+  box-shadow: 0 4px 12px rgba(43, 23, 8, 0.15);
+}
+
+/* Gestione della visibilità dei pannelli */
+.menu-category {
+  display: none; /* Nasconde tutte le categorie di base */
+  animation: fadeInPanel 0.4s ease-out forwards;
+}
+
+.menu-category.active {
+  display: block; /* Mostra solo la categoria attiva */
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 13. IMPASTI ─────────────────────────────────────────────────── */
+.igrid { display: grid; gap: 1.2rem; margin-top: 2.8rem; }
+
+@media(min-width: 580px)  { 
+  .igrid { grid-template-columns: 1fr 1fr; } 
+}
+
+@media(min-width: 1000px) { 
+  .igrid { 
+    grid-template-columns: repeat(2, 1fr); /* Griglia perfetta 2x2 */
+    max-width: 900px; /* Evita che i blocchi diventino troppo larghi */
+    margin-inline: auto; /* Li centra perfettamente nella pagina */
+  } 
+}
+
+/* ── STRUTTURA BASE DELLA CARD IMPASTI ── */
+.icard {
+  position: relative; /* FONDAMENTALE: Ancora l'immagine e l'overlay al suo interno */
+  overflow: hidden; /* FONDAMENTALE: Taglia l'immagine se sborda */
+  background: rgba(255, 255, 255, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-m); 
+  text-align: center;
+  transition: transform var(--dur) var(--ease), border-color var(--dur);
+  color: var(--bg); /* Forza tutto il testo del riquadro a diventare chiaro */
+}
+
+/* NUOVO OVERLAY PER IMPASTI (Il velo scuro) */
+.icard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 14, 5, 0.85);
+  z-index: 0;
+  opacity: 0; /* Nascosto di base */
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none; /* Evita di bloccare i click */
+}
+
+/* ── IMMAGINE DI SFONDO (ORA TAG <img>) ── */
+.icard-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Riempie la card senza schiacciare la foto */
+  opacity: 0; /* Nascosta di base */
+  z-index: 0;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  transform: scale(1.1); /* Effetto zoom iniziale */
+}
+
+/* ── CONTENITORE DEL TESTO E ICONA ── */
+.icard-content {
+  position: relative;
+  z-index: 1; /* Mantiene i testi in primo piano sopra la foto e il velo */
+  padding: 2.2rem 1.5rem; 
+}
+
+.icard .ic { font-size: 2.1rem; display: block; margin-bottom: 0.8rem; }
+.icard-name { font-family: var(--fD); font-style: italic; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.45rem; }
+.icard-desc { font-size: 0.86rem; opacity: 0.85; line-height: 1.6; }
+
+/* ── COMPORTAMENTI AL PASSAGGIO DEL MOUSE (HOVER) ── */
+.icard:hover { 
+  transform: translateY(-4px); 
+  border-color: rgba(184, 136, 42, 0.5); 
+}
+
+.icard:hover .icard-bg {
+  opacity: 1; 
+  transform: scale(1); 
+}
+
+.icard:hover::after {
+  opacity: 1; /* Mostra il velo scuro insieme alla foto */
+}
+
+/* ── 14. SERVIZI ────────────────────────────────────────────────── */
+.sgrid { display: grid; gap: 1.5rem; margin-top: 2.8rem; }
+
+@media(min-width: 580px) { .sgrid { grid-template-columns: 1fr 1fr; } }
+@media(min-width: 900px) { .sgrid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ── STRUTTURA BASE DELLA CARD ── */
+.scard {
+  position: relative; 
+  overflow: hidden; 
+  background: transparent; 
+  border: 1px solid rgba(43, 23, 8, 0.2);
+  border-radius: var(--r-m);
+  text-align: center;
+  transition: transform var(--dur) var(--ease), border-color var(--dur);
+}
+
+/* NUOVO OVERLAY PER SERVIZI (Il velo scuro) */
+.scard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 14, 5, 0.82);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+
+.scard:hover { 
+  transform: translateY(-5px); 
+  border-color: var(--siena);
+}
+
+/* ── IMMAGINE DI SFONDO (ORA TAG <img>) ── */
+.scard-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; 
+  z-index: 0;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  transform: scale(1.1); 
+}
+
+/* ── CONTENITORE DEL TESTO E ICONA ── */
+.scard-content {
+  position: relative;
+  z-index: 1; 
+  padding: 2.2rem 1.5rem; 
+  transition: color var(--dur);
+}
+
+.scard-icon { 
+  width: 58px; height: 58px; background: var(--siena);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+  margin: 0 auto 1.2rem; font-size: 1.55rem;
+}
+
+.scard-title { 
+  font-family: var(--fD); font-style: italic;
+  font-size: 1.28rem; color: var(--siena); margin-bottom: 0.55rem; 
+  transition: color var(--dur); 
+}
+
+.scard-desc { font-size: 0.86rem; line-height: 1.7; opacity: 0.72; }
+
+/* ── COMPORTAMENTI AL PASSAGGIO DEL MOUSE (HOVER) ── */
+.scard:hover .scard-bg {
+  opacity: 1; 
+  transform: scale(1); 
+}
+
+.scard:hover::after {
+  opacity: 1; /* Mostra il velo scuro insieme alla foto */
+}
+
+.scard:hover .scard-content { color: var(--white); }
+.scard:hover .scard-title { color: var(--gold); }
+
+/* ── 15. REVIEWS ────────────────────────────────────────────────── */
+.rgrid { display: grid; gap: 1.2rem; margin-top: 2.8rem; }
+
+@media(min-width: 640px)  { .rgrid { grid-template-columns: 1fr 1fr; } }
+@media(min-width: 1000px) { .rgrid { grid-template-columns: repeat(3, 1fr); } }
+
+.rcard {
+  background: transparent; border-left: 3px solid var(--siena); border-bottom: 1px solid rgba(43, 23, 8, 0.1);
+  padding: 1.6rem; transition: transform var(--dur);
+}
+
+.rcard:hover { transform: translateX(4px); }
+.r-stars { color: var(--gold); font-size: 0.88rem; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+.r-text { font-family: var(--fD); font-style: italic; font-size: 1rem; line-height: 1.7; margin-bottom: 0.85rem; }
+.r-auth { font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--siena); opacity: 0.8; }
+
+/* ── 16. INFO / ORARI ──────────────────────────────────────────── */
+.info-wrap { display: grid; }
+@media(min-width: 768px) { .info-wrap { grid-template-columns: 1fr 1fr; } }
+
+.info-block { padding: 4.5rem 1.5rem; }
+@media(min-width: 768px) { .info-block { padding: 5rem 6vw; } }
+
+.info-block .eyebrow { color: rgba(250, 246, 239, 0.6); }
+.info-block .section-title { color: var(--white); }
+.info-block .section-title em { color: var(--gold); }
+
+.htable { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+.htable tr { border-bottom: 1px solid rgba(250, 246, 239, 0.12); }
+.htable td { padding: 0.7rem 0.2rem; font-size: 0.86rem; }
+.htable td:last-child { text-align: right; opacity: 0.72; }
+.htable .today td { color: var(--gold); font-weight: 700; }
+
+.table-note { 
+  margin-top: 1rem; 
+  font-size: 0.72rem; 
+  opacity: 0.6;
+  letter-spacing: 0.06em; 
+  color: var(--white); 
+}
+
+.clist { margin-top: 1.5rem; }
+.citem { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.82rem 0;
+  border-bottom: 1px solid rgba(250, 246, 239, 0.1); }
+.citem-icon { font-size: 1.2rem; flex-shrink: 0; padding-top: 0.04rem; }
+.citem-label { display: block;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.14rem; }
+.citem-val { font-size: 0.86rem; opacity: 0.76; line-height: 1.5; }
+.citem-val a { color: inherit; }
+.citem-val a:hover { text-decoration: underline; }
+
+/* ── 17. FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--brown);
+  color: rgba(250, 246, 239, 0.35);
+  text-align: center;
+  padding: 1.5rem 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  border-top: 1px solid rgba(250, 246, 239, 0.07);
+}
+footer strong { color: var(--siena-l); }
+
+/* ── 18. INFO E ORARI (Retro del Menù) ─────────────────────────── */
+.info-unified { 
+  display: grid; 
+  gap: 4rem; 
+  max-width: 1000px; 
+  margin: 0 auto; 
+  position: relative;
+  padding-top: 3rem; /* Spazio per la linea superiore */
+}
+
+@media(min-width: 768px) { 
+  .info-unified { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 8rem; 
+  } 
+
+  /* Linea divisoria centrale (Verticale) */
+  .info-unified::after {
+    content: '';
+    position: absolute;
+    top: 15%;      
+    bottom: 5%;   
+    left: 50%;
+    width: 3px;    
+    background-color: var(--siena);
+    transform: translateX(-50%);
+  }
+
+  /* Linea superiore (Orizzontale) */
+  .info-unified::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;    /* La linea non tocca i bordi, proprio come nelle recensioni */
+    right: 10%;
+    height: 3px;   /* Stesso spessore della linea centrale */
+    background-color: var(--siena);
+  }
+}
+
+.info-col .category-title { font-size: 1.8rem; margin-bottom: 1.5rem; }
+.info-col .category-title::before, .info-col .category-title::after { display: none; }
+
+.htable-light { width: 100%; border-collapse: collapse; }
+.htable-light tr { border-bottom: 1px dotted rgba(43, 23, 8, 0.4); }
+.htable-light td { padding: 0.8rem 0.2rem; font-family: var(--fB); color: var(--brown); font-size: 0.95rem; }
+.htable-light td:last-child { text-align: right; font-weight: 600; }
+.htable-light .today td { color: var(--siena); font-weight: 700; }
+
+.clist-light { margin-top: 0; }
+.clist-light .citem { display: flex; align-items: flex-start; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px dotted rgba(43, 23, 8, 0.4); }
+.clist-light .citem-icon { font-size: 1.3rem; margin-top: 0.2rem; }
+.clist-light .citem-label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--siena); margin-bottom: 0.2rem; }
+.clist-light .citem-val { font-size: 0.95rem; color: var(--brown); line-height: 1.5; font-weight: 500;}
+.clist-light .citem-val a { color: var(--brown); transition: color var(--dur); }
+.clist-light .citem-val a:hover { color: var(--siena); text-decoration: none; }
+
+/* ── 18. NUOVA IMMAGINE IMPASTI (Con Parallasse) ────────────────── */
+.bg-image-parallax {
+  position: relative;
+  /* Percorso aggiornato con la cartella img e formato ottimizzato WebP */
+  background-image: url('img/sfondo-impasti.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+.bg-image-parallax::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(26, 14, 5, 0.82);
+  z-index: -1;
+}
+
+/* ── VISIBILITÀ AUTOMATICA FOTO E VELO SU SMARTPHONE ── */
+@media (max-width: 768px) {
+  /* Mostra subito le foto E i veli oscuranti di Servizi e Impasti */
+  .scard .scard-bg, 
+  .icard .icard-bg,
+  .scard::after,
+  .icard::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .hero-btns .btn-whatsapp {
+    transform: none !important;
+  }
+
+  /* Rende il testo bianco per contrastare il fondo scuro della foto */
+  .scard .scard-content, 
+  .icard .icard-content {
+    color: var(--white);
+  }
+  
+  /* Accende i titoli con il color oro */
+  .scard .scard-title {
+    color: var(--gold);
+  }
+  .icard .icard-name {
+    color: var(--gold); /* Uniformato all'oro per massima eleganza */
+  }
+  
+  /* Mantiene i bordi colorati per inquadrare bene la foto */
+  .scard { border-color: var(--siena); }
+  .icard { border-color: rgba(184, 136, 42, 0.5); }
+
+  /* --- FIX iOS SAFARI: Disattiva il parallasse su smartphone per evitare foto sgranate --- */
+  .bg-image-parallax {
+    background-attachment: scroll !important;
+  }
+} /* ← FINE DELLA MEDIA QUERY PER SMARTPHONE */
+
+/* ── VISIBILITÀ DEL FOCUS SU SFONDI SCURI (VALE PER TUTTI I DISPOSITIVI) ── */
+#hero :focus-visible,
+.bg-image-parallax :focus-visible,
+.bg-brown :focus-visible,
+footer :focus-visible {
+  outline-color: var(--bg); /* Il tratteggio diventa color carta paglia chiaro */
+}
+
+/* --- MODALE PRENOTAZIONE WHATSAPP --- */
+.wa-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 23, 8, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+}
+
+.wa-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wa-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg);
+  padding: 2.8rem 2.2rem 2.2rem;
+  border-top: 4px solid var(--siena);
+  box-shadow: var(--sh-l);
+  box-sizing: border-box;
+  transform: translateY(16px);
+  transition: transform 0.35s var(--ease);
+}
+
+.wa-modal-overlay.active .wa-modal-dialog {
+  transform: translateY(0);
+}
+
+/* Linea decorativa in basso, come le card del sito */
+.wa-modal-dialog::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: var(--siena);
+  opacity: 0.25;
+}
+
+/* Chiusura */
+.wa-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  color: var(--brown);
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.4;
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+  transition: opacity var(--dur);
+  font-family: var(--fB);
+}
+
+.wa-modal-close:hover { opacity: 1; }
+
+/* Eyebrow sopra il titolo */
+.wa-modal-eyebrow {
+  font-family: var(--fB);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--siena);
+  text-align: center;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Titolo */
+.wa-booking-title {
+  font-family: var(--fD);
+  color: var(--brown);
+  margin: 0 0 0.3rem;
+  font-size: clamp(1.7rem, 4vw, 2.1rem);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.wa-booking-title em {
+  font-style: italic;
+  color: var(--siena);
+}
+
+/* Sottotitolo */
+.wa-booking-sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 1.8rem;
+  line-height: 1.5;
+}
+
+/* Divisore */
+.wa-divider {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--siena);
+  opacity: 0.4;
+  margin: 0.9rem auto 1.6rem;
+}
+
+/* Gruppi input */
+.wa-input-group {
+  margin-bottom: 1.1rem;
+}
+
+.wa-input-group label,
+.wa-col label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--siena);
+  margin-bottom: 0.4rem;
+}
+
+.wa-modal-dialog input,
+.wa-modal-dialog select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(43, 23, 8, 0.2);
+  border-bottom: 2px solid rgba(43, 23, 8, 0.25);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--brown);
+  font-family: var(--fB);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: var(--r-s);
+  transition: border-color var(--dur), background var(--dur), box-shadow var(--dur);
+}
+
+.wa-modal-dialog input::placeholder { color: var(--muted); }
+
+.wa-modal-dialog input:focus,
+.wa-modal-dialog select:focus {
+  border-color: var(--siena);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 0 0 var(--siena);
+}
+
+.wa-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.1rem;
+}
+
+.wa-col { flex: 1; }
+
+@media (max-width: 768px) {
+  /* 1. Forza la riga a diventare un blocco verticale (Addio Flex orizzontale) */
+  .wa-row {
+    display: block !important; 
+    width: 100% !important;
+    margin-bottom: 0;
+  }
+
+  /* 2. Forza le colonne a prendersi tutto lo spazio senza sconti */
+  .wa-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  /* 3. Fix specifico per iPhone: impedisce agli input di sbordare */
+  .wa-modal-dialog {
+    width: 92% !important;
+    max-width: 380px;
+    padding: 2.5rem 1.2rem 1.5rem !important;
+    overflow: hidden;
+  }
+
+  /* 4. Reset grafico completo: proprietario + standard */
+  .wa-modal-dialog input, 
+  .wa-modal-dialog select {
+    width: 100% !important;
+    display: block;
+    -webkit-appearance: none; /* Supporto specifico per iOS Safari / vecchi WebKit */
+    appearance: none;         /* Proprietà standard moderna W3C */
+    font-size: 16px !important; /* Obbligatorio per disinnescare lo zoom automatico di iOS */
+  }
+}
+
+/* Bottone invio — stile coerente col btn-primary del sito */
+.wa-submit-btn {
+  width: 100%;
+  margin-top: 1.6rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--brown);
+  color: var(--bg);
+  border: 1.5px solid var(--brown);
+  border-radius: 50px;
+  font-family: var(--fB);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+
+.wa-submit-btn:hover {
+  background: var(--siena);
+  border-color: var(--siena);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(155, 74, 28, 0.25);
+}
+
+.wa-submit-btn:active { transform: none; }
+
+/* BOTTONE SECONDARIO: Link testuale per saltare il modulo */
+.wa-skip-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #2C1A0E; /* Marrone scuro ben visibile */
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.wa-skip-btn:hover {
+  color: var(--siena, #D2691E);
+}
